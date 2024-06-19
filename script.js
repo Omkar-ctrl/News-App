@@ -9,11 +9,31 @@ function reload() {
 }
 
 
+// async function fetchNews(query) {
+//     showLoadingIndicator();
+//     try {
+//         // Refine the query to be more specific to India
+//         const res = await fetch(`${url}${query}&language=en&sortBy=publishedAt&apiKey=${API_KEY}`);
+//         const data = await res.json();
+//         bindData(data.articles);
+//     } catch (error) {
+//         console.error("Error fetching news:", error);
+//     } finally {
+//         hideLoadingIndicator();
+//     }
+// }
+
 async function fetchNews(query) {
     showLoadingIndicator();
     try {
-        // Refine the query to be more specific to India
-        const res = await fetch(`${url}${query}&language=en&sortBy=publishedAt&apiKey=${API_KEY}`);
+        const res = await fetch(`${url}${query}&language=en&sortBy=publishedAt&apiKey=${API_KEY}`, {
+            headers: {
+                'Upgrade': 'TLS/1.2, HTTP/2.0, SPDY/3.1'
+            }
+        });
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
         const data = await res.json();
         bindData(data.articles);
     } catch (error) {
@@ -23,19 +43,6 @@ async function fetchNews(query) {
     }
 }
 
-
-// async function fetchNews(query) {
-//     showLoadingIndicator();
-//     try {
-//         const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-//         const data = await res.json();
-//         bindData(data.articles);
-//     } catch (error) {
-//         console.error("Error fetching news:", error);
-//     } finally {
-//         hideLoadingIndicator();
-//     }
-// }
 
 function showLoadingIndicator() {
     document.getElementById("loading-indicator").classList.add("active");
