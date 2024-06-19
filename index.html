@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">
+            <img  onclick="reload()" src="images/news_icon.png" alt="">
+            <span>News</span>
+        </div>
+        <div class="middle">
+            <a   class="hover-link nav-item" href="#Latest" id="IndiaBreakingNews" onclick="OnNavClick('Latest')">Latest</a>
+            <a  class="hover-link nav-item" href="#Buisness" id="Buisness" onclick="OnNavClick('Buisness')">Buisness</a>
+            <a  class="hover-link nav-item" href="#Finance" id="Finance" onclick="OnNavClick('Finance')" >Finance</a>
+            <a   class="hover-link nav-item" href="#Politics" id="Politics" onclick="OnNavClick('Politics')">Politics</a>
+            <a   class="hover-link nav-item" href="#Lifestyle" id="Lifestyle" onclick="OnNavClick('Lifestyle')">Lifestyle</a>
+            <a   class="hover-link nav-item" href="#Entertainment" id="Entertainment" onclick="OnNavClick('Entertainment')">Entertainment</a>
+            <a   class="hover-link nav-item" href="#Education" id="Education" onclick="OnNavClick('Education')">Education</a>
+            <a   class="hover-link nav-item" href="#Sports" id="Sports" onclick="OnNavClick('Sports')">Sports</a>
+
+        </div>
+        <div class="right">
+            <div class="search-container">
+                <input id="search-text" type="text" placeholder="Search..">
+                <button  id="search-button" type="submit">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="space"></div>
+    
+    <main>
+        
+      <div id="animateloader" class="loader"></div> 
+
+      
+        <div id="loading-indicator" class="loading">
+            <div class="spinner"></div>
+            
+        </div>
+
+        <div class="cards-container container flex" id="cards-container">
+            
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+
+    
+</body>
+
+<script src="script.js"></script>
+</html>
